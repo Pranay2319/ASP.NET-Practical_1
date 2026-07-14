@@ -1,0 +1,113 @@
+a. Create an MVC application to perform basic Arithmetic Operations.
+Code:
+HomeController.cs:
+using Microsoft.AspNetCore.Mvc;
+using MVCAdd.Models;
+using System.Web;
+
+namespace MVCAdd.Controllers
+{
+public class HomeController : Controller
+{
+public ActionResult Index()
+{
+return View(new AddModel());
+}
+
+[HttpPost]
+public ActionResult Index(AddModel m)
+{
+m.Result = m.A + m.B;
+return View(m);
+}
+}
+}
+
+2
+
+Practical1A.cs:
+namespace MVCAdd.Models
+{
+public class AddModel
+{
+public int A { get; set; }
+public int B { get; set; }
+public int Result { get; set; }
+}
+}
+
+Index.cshtml:
+@model MVCAdd.Models.AddModel
+
+<h2>Add Two Numbers</h2>
+
+@using (Html.BeginForm())
+{
+@Html.TextBoxFor(m => m.A)
+<br />
+<br />
+
+@Html.TextBoxFor(m => m.B)
+<br />
+<br />
+
+<input type="submit" value="Add" />
+<br />
+<br />
+
+<b>Result = @Model.Result</b>
+}
+
+
+b. Create an application to print Floyd’s triangle till n rows in C#.
+Code:
+using System;
+
+class Floyd
+{
+static void Main()
+{
+int count = 1;
+
+for (int i = 0; i <= 4; i++)
+{
+for (int j = 0; j <= i; j++)
+{
+Console.Write(count + " ");
+count++;
+}
+Console.WriteLine();
+}
+Console.WriteLine("Pranay T003");
+}
+}
+
+
+c. Write C# code to arrange the name of cities in sorted order. Accept name of 10 cities from the
+user
+Code:
+using System;
+
+class Flyod
+{
+static void Main()
+{
+string[] city = new string[5];
+
+for (int i = 0; i < 5; i++)
+{
+Console.Write("Enter city " + (i + 1) + ": ");
+city[i] = Console.ReadLine();
+}
+
+Array.Sort(city);
+
+Console.WriteLine("\n----- Sorted Cities -----");
+
+for (int i = 0; i < city.Length; i++)
+{
+Console.WriteLine(city[i]);
+}
+Console.WriteLine("Pranay T003");
+}
+}
